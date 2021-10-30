@@ -43,14 +43,23 @@ class UI {
     }
 
     static validate(message, className) {
-        const warning = document.querySelector('.warning');
+        const p = document.createElement('p'); 
+        p.className = `p-3 text-white ${className}`;
+        p.appendChild(document.createTextNode(message));
+
+        const myform = document.querySelector("#myForm");
+        const warning = document.querySelector(".warning");
+        myform.insertBefore(p,warning);
+        setTimeout(() => {
+            p.remove()
+        }, 3000);
+        
+        /*const warning = document.querySelector('.warning');
         const p = document.createElement('p');
+        warning.appendChild(p);
         p.className = `p-3 text-white ${className}`;
         p.innerHTML = `${message}`; 
-        warning.appendChild(p);
-       setTimeout(() => {
-           warning.remove()
-       }, 3000);
+*/
     }
 }
 
@@ -111,7 +120,7 @@ function onSubmit(e) {
     //Validate form
 
     if (name === '' || author === '' || isbn === '') {
-        UI.validate('Please fill in all fields', 'bg-danger')
+        UI.validate('Please fill in all fields', 'bg-danger');
     } else {
              //Instantiate Book Class
 
