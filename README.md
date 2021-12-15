@@ -1,4 +1,4 @@
 # booklistapp
 
-live link : https://jamesboook.netlify.app 
+live link : https://jamesbooklist.netlify.app 
 
